@@ -1,33 +1,27 @@
 import React from "react";
+import ProjectCard from "../components/ProjectCard";
 
 function Overview() {
   return (
-    <div className="flex columns-9  ">
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore,
-        tempora maiores odit assumenda illo adipisci incidunt excepturi,
-        officiis similique iure maxime, repellendus velit tenetur veritatis.
-        Iste consectetur est atque libero molestiae unde commodi nesciunt, sint
-        in laudantium, doloribus quisquam veritatis quasi voluptatem
-        necessitatibus nihil eum optio nam quo distinctio deserunt saepe. In
-        nisi ex beatae placeat reprehenderit libero possimus odio maiores harum
-        vero voluptatibus amet, nobis quae eos facere hic voluptatum
-        exercitationem unde dolor nemo corrupti perferendis. Eaque similique
-        est, molestias natus temporibus nam? Quos dolor recusandae
-        exercitationem magnam, nostrum sapiente saepe odio facere iure. Sunt
-        ipsa aliquam nostrum dolor! Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Labore, tempora maiores odit assumenda illo adipisci
-        incidunt excepturi, officiis similique iure maxime, repellendus velit
-        tenetur veritatis. Iste consectetur est atque libero molestiae unde
-        commodi nesciunt, sint in laudantium, doloribus quisquam veritatis quasi
-        voluptatem necessitatibus nihil eum optio nam quo distinctio deserunt
-        saepe. In nisi ex beatae placeat reprehenderit libero possimus odio
-        maiores harum vero voluptatibus amet, nobis quae eos facere hic
-        voluptatum exercitationem unde dolor nemo corrupti perferendis. Eaque
-        similique est, molestias natus temporibus nam? Quos dolor recusandae
-        exercitationem magnam, nostrum sapiente saepe odio facere iure. Sunt
-        ipsa aliquam nostrum dolor!
-      </p>
+    <div className="container">
+      <div className="flex justify-between mb-2 px-2">
+        <div className="">
+          <span>Popular repositories</span>
+        </div>
+        <div>
+          <a href="#" className="text-blue-600">
+            Costumize your pins
+          </a>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+      </div>
     </div>
   );
 }

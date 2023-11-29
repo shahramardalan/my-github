@@ -15,7 +15,7 @@ function App() {
               <Profile />
             </div>
           </div>
-          <main role="main" class="w-full sm:w-2/3 md:w-3/4 pt-1 px-2">
+          <main class="w-full sm:w-2/3 md:w-3/4 pt-1 px-2">
             <Overview />
           </main>
         </div>
