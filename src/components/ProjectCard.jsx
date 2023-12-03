@@ -1,24 +1,24 @@
 import React from "react";
 
-function ProjectCard() {
+function ProjectCard(props) {
   return (
     <div>
       <div className="rounded-lg p-4 border-2">
         <div className="flex justify-between mb-8">
           <a
-            href="#"
+            href={props.html_url}
             className="font-semibold text-blue-500 text-sm hover:underline"
           >
-            Lorem, ipsum dolor.
+            {props.name}
           </a>
           <span className="border px-2 rounded-xl text-sm font-semibold text-gray-500">
-            Public
+            {props.visibility}
           </span>
         </div>
         <div className="flex justify-left items-center">
           <span className="mr-2 h-3 w-3 bg-yellow-300 rounded-full"></span>
           <span className="font-thin text-md text-gray-500 ">
-            Lorem, ipsum.
+            {props.language}
           </span>
         </div>
       </div>

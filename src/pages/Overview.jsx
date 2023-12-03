@@ -4,15 +4,25 @@ import { Octokit } from "octokit";
 
 function Overview() {
   const [items, setItems] = useState([]);
-  const [users] = useState("shahramardalan");
 
   useEffect(() => {
     const fetchRepos = async () => {
-      const res = await fetch(
-        `https://api.github.com/users/${users}/repos?page=1&per_page=10&sort=updated`
-      );
-      const data = await res.json();
-      setItems(data);
+      const octokit = new Octokit({
+        auth: `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`,
+      });
+
+      const {
+        data: { login },
+      } = await octokit.rest.users.getAuthenticated();
+
+      const repos = await octokit.request("GET /users/{username}/repos", {
+        username: login,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      });
+      setItems(repos.data);
+      console.log(repos);
     };
 
     fetchRepos();
@@ -31,13 +41,15 @@ function Overview() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <h1>{items.length}</h1>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {items.map((item) => (
+          <ProjectCard
+            key={item.id}
+            html_url={item.html_url}
+            name={item.name}
+            visibility={item.visibility}
+            language={item.language}
+          />
+        ))}
       </div>
     </div>
   );
